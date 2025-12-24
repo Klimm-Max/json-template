@@ -8,11 +8,12 @@ internal class FunctionRegistry {
 
     fun register(templateFunction: TemplateFunction) {
         check(!functions.containsKey(templateFunction.name)) {
-            "Function '${templateFunction.name}' already registered!"
+            throw IllegalArgumentException("Function '${templateFunction.name}' already registered!")
         }
 
         functions[templateFunction.name] = templateFunction
     }
 
-    fun get(name: String): TemplateFunction = functions[name] ?: error("Unknown function '$name'")
+    fun get(name: String): TemplateFunction =
+        functions[name] ?: throw IllegalArgumentException("Unknown function '$name'")
 }

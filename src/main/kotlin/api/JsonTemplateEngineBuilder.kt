@@ -4,6 +4,7 @@ import io.github.klimmmax.core.ExpressionParser
 import io.github.klimmmax.core.ExecutionContext
 import io.github.klimmmax.core.FunctionRegistry
 import io.github.klimmmax.core.TemplateRenderer
+import io.github.klimmmax.functions.DefaultFunctions
 
 class JsonTemplateEngineBuilder {
 
@@ -13,6 +14,10 @@ class JsonTemplateEngineBuilder {
 
     fun register(fn: TemplateFunction): JsonTemplateEngineBuilder = apply {
         registry.register(fn)
+    }
+
+    fun withDefaults(): JsonTemplateEngineBuilder = apply {
+        DefaultFunctions.registerInto(registry)
     }
 
     fun build(): JsonTemplateEngine {

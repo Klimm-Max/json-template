@@ -3,7 +3,7 @@ package io.github.klimmmax.functions
 import io.github.klimmmax.api.TemplateFunction
 import io.github.klimmmax.core.ExecutionContext
 
-class RandomInt : TemplateFunction {
+internal class RandomInt : TemplateFunction {
     override val name = "randomInt"
 
     override fun execute(args: List<String>, ctx: ExecutionContext): String {
