@@ -2,7 +2,6 @@ package functions
 
 import io.github.klimmmax.core.ExecutionContext
 import io.github.klimmmax.functions.RandomBool
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import kotlin.random.Random

@@ -5,7 +5,7 @@ import io.github.klimmmax.functions.RandomString
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import kotlin.random.Random
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
 class RandomStringTest {
