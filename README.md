@@ -101,7 +101,7 @@ val fileContent = object {}::class.java
     ?.readText()
     ?: error("Resource simple_sample.json not found")
     
-    template.render(fileContent)
+template.render(fileContent)
 ```
 
 ------------------------------------------------------------------------
