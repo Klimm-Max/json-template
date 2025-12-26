@@ -22,27 +22,27 @@ class RandomIntTest {
 
     @Test
     fun `no args returns any integer`() {
-        val result = fn.execute(emptyList(), ctx).toInt()
+        val result = fn.execute(mutableListOf(), ctx).toInt()
         // deterministic because of seed
         assertEquals(296510812, result)
     }
 
     @Test
     fun `one arg uses upper bound`() {
-        val result = fn.execute(listOf("10"), ctx).toInt()
+        val result = fn.execute(mutableListOf("10"), ctx).toInt()
         assertTrue(result in 0..10)
     }
 
     @Test
     fun `one arg uses lower bound if arg is negative`() {
-        val result = fn.execute(listOf("-10"), ctx).toInt()
+        val result = fn.execute(mutableListOf("-10"), ctx).toInt()
         assertTrue(result in -10..0)
     }
 
     @Test
     fun `two args use min and max`() {
         repeat(100) {
-            val value = fn.execute(listOf("1", "7"), ctx).toInt()
+            val value = fn.execute(mutableListOf("1", "7"), ctx).toInt()
             assertTrue(value in 1..7)
         }
     }
@@ -50,7 +50,7 @@ class RandomIntTest {
     @Test
     fun `min greater than max throws`() {
         val ex = assertFailsWith<IllegalArgumentException> {
-            fn.execute(listOf("10", "5"), ctx)
+            fn.execute(mutableListOf("10", "5"), ctx)
         }
         assertTrue(ex.message!!.contains("min (10) must be <= max (5)"))
     }
@@ -58,22 +58,22 @@ class RandomIntTest {
     @Test
     fun `non integer arg throws`() {
         assertFailsWith<IllegalArgumentException> {
-            fn.execute(listOf("abc"), ctx)
+            fn.execute(mutableListOf("abc"), ctx)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            fn.execute(listOf("2147483648"), ctx)
+            fn.execute(mutableListOf("2147483648"), ctx)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            fn.execute(listOf("-2147483649", "0"), ctx)
+            fn.execute(mutableListOf("-2147483649", "0"), ctx)
         }
     }
 
     @Test
     fun `too many args throws`() {
         assertFailsWith<IllegalArgumentException> {
-            fn.execute(listOf("1", "2", "3"), ctx)
+            fn.execute(mutableListOf("1", "2", "3"), ctx)
         }
     }
 }

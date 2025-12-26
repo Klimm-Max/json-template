@@ -10,7 +10,7 @@ internal class RandomString : TemplateFunction {
         private const val MAX_LENGTH = 255
     }
 
-    override fun execute(args: List<String>, ctx: ExecutionContext): String {
+    override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         return when (args.size) {
             0 -> getRandomString(32, ctx)
 

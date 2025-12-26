@@ -7,10 +7,10 @@ import java.time.OffsetDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeParseException
 
-class RandomTimestamp : TemplateFunction {
+internal class RandomTimestamp : TemplateFunction {
     override val name = "randomTimestamp"
 
-    override fun execute(args: List<String>, ctx: ExecutionContext): String {
+    override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         if (args.size == 1) {
             val border = try {
                 OffsetDateTime.parse(args[0])

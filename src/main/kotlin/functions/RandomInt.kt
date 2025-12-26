@@ -6,7 +6,7 @@ import io.github.klimmmax.core.ExecutionContext
 internal class RandomInt : TemplateFunction {
     override val name = "randomInt"
 
-    override fun execute(args: List<String>, ctx: ExecutionContext): String {
+    override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         return when (args.size) {
             0 -> ctx.random.nextInt().toString()
 

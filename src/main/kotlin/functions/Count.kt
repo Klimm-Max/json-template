@@ -3,10 +3,10 @@ package io.github.klimmmax.functions
 import io.github.klimmmax.api.TemplateFunction
 import io.github.klimmmax.core.ExecutionContext
 
-class Count : TemplateFunction {
+internal class Count : TemplateFunction {
     override val name = "count"
 
-    override fun execute(args: List<String>, ctx: ExecutionContext): String {
+    override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         var currentValue = (ctx.state[name] ?: 0L) as Long
         var step = 1
 

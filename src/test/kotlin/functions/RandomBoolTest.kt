@@ -21,7 +21,7 @@ class RandomBoolTest {
 
     @Test
     fun `always returning a random bool`() {
-        val result = fn.execute(emptyList(), ctx)
+        val result = fn.execute(mutableListOf(), ctx)
         repeat(100) {
             assertContains(listOf("true", "false"), result, "result should be either 'true' or 'false' but was $result")
         }
@@ -29,7 +29,7 @@ class RandomBoolTest {
 
     @Test
     fun `arguments will be ignored during execute`() {
-        val result = fn.execute(listOf("testString", "123"), ctx)
+        val result = fn.execute(mutableListOf("testString", "123"), ctx)
         assertFalse(result.toBoolean())
     }
 
