@@ -11,6 +11,7 @@ internal object DefaultFunctions {
         registry.register(RandomTimestamp())
         registry.register(Timestamp())
         registry.register(Count())
+        registry.register(RandomFloat())
     }
 
 }
