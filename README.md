@@ -236,7 +236,7 @@ All arguments you want to pass to the `args: MutableList<String>` must be within
 
 ```kotlin
 class CustomFunction: TemplateFunction {
-    override val name = "uuid"
+    override val name = "customFunction"
 
     override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         println(args) // 1,2,3
