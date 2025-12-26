@@ -14,6 +14,5 @@ internal class FunctionRegistry {
         functions[templateFunction.name] = templateFunction
     }
 
-    fun get(name: String): TemplateFunction =
-        functions[name] ?: throw IllegalArgumentException("Unknown function '$name'")
+    fun get(name: String) = functions[name] ?: throw IllegalArgumentException("Unknown function '$name'")
 }

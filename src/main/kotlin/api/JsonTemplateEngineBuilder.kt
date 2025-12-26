@@ -8,8 +8,8 @@ import io.github.klimmmax.functions.DefaultFunctions
 
 class JsonTemplateEngineBuilder {
 
+    private var context: ExecutionContext = ExecutionContext()
     private val registry = FunctionRegistry()
-    private val context = ExecutionContext()
     private val parser = ExpressionParser()
 
     fun register(fn: TemplateFunction): JsonTemplateEngineBuilder = apply {
@@ -18,6 +18,10 @@ class JsonTemplateEngineBuilder {
 
     fun withDefaults(): JsonTemplateEngineBuilder = apply {
         DefaultFunctions.registerInto(registry)
+    }
+
+    fun withExecutionContext(ctx: ExecutionContext): JsonTemplateEngineBuilder = apply {
+        context = ctx
     }
 
     fun build(): JsonTemplateEngine {
