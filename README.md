@@ -108,7 +108,11 @@ template.render(fileContent)
 
 If you want to use **ALL** built-in functions simply call `.withDefaults()` on the builder like shown above. 💯
 
-If you do not need all the built-in functions provided, you can simply register only those you need with `.withDefault(array of DefaultFunction)`.
+<details>
+
+<summary>You can also just register the built-in functions you really need</summary>
+
+You can simply register only those you need with `.withDefault(array of DefaultFunction)`.
 For that, refer to [`DefaultFunction`](src/main/kotlin/api/DefaultFunction.kt)
 ```kotlin
 class YourApplication {
@@ -122,7 +126,7 @@ class YourApplication {
 }
 ```
 
-
+</details>
 
 ------------------------------------------------------------------------
 
