@@ -21,9 +21,6 @@ jobs:
           distribution: temurin
           java-version: 25
           cache: maven
-          server-id: central
-          server-username: ${{ secrets.CENTRAL_USERNAME }}
-          server-password: ${{ secrets.CENTRAL_TOKEN }}
 
       - name: Import GPG key
         run: |
@@ -31,6 +28,21 @@ jobs:
           gpg --list-secret-keys --keyid-format LONG
         env:
           GPG_TTY: ${{ github.workspace }}
+
+      - name: Configure Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+            <servers>
+              <server>
+                <id>central</id>
+                <username>${MAVEN_USERNAME}</username>
+                <password>${MAVEN_PASSWORD}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
 
       - name: Set release version
         run: mvn versions:set -DnewVersion=${{ inputs.version }}
