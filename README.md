@@ -84,9 +84,9 @@ probably **not** what you want.
 
 ``` xml
 <dependency>
-  <groupId>io.github.klimmmax</groupId>
+  <groupId>io.github.matoklimm</groupId>
   <artifactId>json-template</artifactId>
-  <version>1.0</version>
+  <version>1.4</version>
 </dependency>
 ```
 
