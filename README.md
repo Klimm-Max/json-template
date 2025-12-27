@@ -300,7 +300,11 @@ class SessionId : TemplateFunction {
 ✔️ ideal for IoT simulators, tests and demos
 
 
-## Contribution
+## Contribution 🖥️
 
-If you find any bugs or have enhancement ideas which stay in tact with the lightweight idea of this library, 
+If you find any bugs 🐞 or have enhancement ideas ✨ which align with the lightweight idea of this library, 
 feel free to open an issue on GitHub. ♥️
+
+## License 🧾
+
+This project is licensed under the Apache License 2.0.
