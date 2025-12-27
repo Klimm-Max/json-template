@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0
  */
-package io.github.klimmmax.api
+package io.github.matoklimm.api
 
 /**
  * The list of default functions. Each can be registered individually via [JsonTemplateEngineBuilder.withDefault]

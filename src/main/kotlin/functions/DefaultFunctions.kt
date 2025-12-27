@@ -1,8 +1,8 @@
-package io.github.klimmmax.functions
+package io.github.matoklimm.functions
 
-import io.github.klimmmax.api.DefaultFunction
-import io.github.klimmmax.api.TemplateFunction
-import io.github.klimmmax.core.FunctionRegistry
+import io.github.matoklimm.api.DefaultFunction
+import io.github.matoklimm.api.TemplateFunction
+import io.github.matoklimm.core.FunctionRegistry
 
 internal object DefaultFunctions {
 

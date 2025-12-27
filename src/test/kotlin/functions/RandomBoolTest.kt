@@ -1,7 +1,7 @@
 package functions
 
-import io.github.klimmmax.core.ExecutionContext
-import io.github.klimmmax.functions.RandomBool
+import io.github.matoklimm.core.ExecutionContext
+import io.github.matoklimm.functions.RandomBool
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import kotlin.random.Random

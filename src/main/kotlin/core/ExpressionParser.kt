@@ -1,4 +1,4 @@
-package io.github.klimmmax.core
+package io.github.matoklimm.core
 
 internal class ExpressionParser {
 

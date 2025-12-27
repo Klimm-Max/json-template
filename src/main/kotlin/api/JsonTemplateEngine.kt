@@ -3,9 +3,9 @@
  *
  * Licensed under the Apache License, Version 2.0
  */
-package io.github.klimmmax.api
+package io.github.matoklimm.api
 
-import io.github.klimmmax.core.TemplateRenderer
+import io.github.matoklimm.core.TemplateRenderer
 
 class JsonTemplateEngine internal constructor(private val renderer: TemplateRenderer) {
     fun render(template: String): String = renderer.render(template)

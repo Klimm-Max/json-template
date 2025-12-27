@@ -1,6 +1,6 @@
 package core
 
-import io.github.klimmmax.core.ExpressionParser
+import io.github.matoklimm.core.ExpressionParser
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

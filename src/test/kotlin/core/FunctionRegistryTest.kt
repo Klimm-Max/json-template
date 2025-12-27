@@ -1,8 +1,8 @@
 package core
 
-import io.github.klimmmax.api.TemplateFunction
-import io.github.klimmmax.core.ExecutionContext
-import io.github.klimmmax.core.FunctionRegistry
+import io.github.matoklimm.api.TemplateFunction
+import io.github.matoklimm.core.ExecutionContext
+import io.github.matoklimm.core.FunctionRegistry
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

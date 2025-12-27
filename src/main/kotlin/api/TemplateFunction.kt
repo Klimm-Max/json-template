@@ -3,9 +3,9 @@
  *
  * Licensed under the Apache License, Version 2.0
  */
-package io.github.klimmmax.api
+package io.github.matoklimm.api
 
-import io.github.klimmmax.core.ExecutionContext
+import io.github.matoklimm.core.ExecutionContext
 
 /**
  * A template function that can be used inside `${...}` expressions.

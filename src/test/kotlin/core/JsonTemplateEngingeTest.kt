@@ -1,7 +1,7 @@
 package core
 
-import io.github.klimmmax.api.JsonTemplateEngineBuilder
-import io.github.klimmmax.core.ExecutionContext
+import io.github.matoklimm.api.JsonTemplateEngineBuilder
+import io.github.matoklimm.core.ExecutionContext
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
 import java.nio.charset.StandardCharsets

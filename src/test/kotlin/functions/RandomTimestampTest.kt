@@ -1,7 +1,7 @@
 package functions
 
-import io.github.klimmmax.core.ExecutionContext
-import io.github.klimmmax.functions.RandomTimestamp
+import io.github.matoklimm.core.ExecutionContext
+import io.github.matoklimm.functions.RandomTimestamp
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

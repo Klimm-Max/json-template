@@ -3,13 +3,13 @@
  *
  * Licensed under the Apache License, Version 2.0
  */
-package io.github.klimmmax.api
+package io.github.matoklimm.api
 
-import io.github.klimmmax.core.ExpressionParser
-import io.github.klimmmax.core.ExecutionContext
-import io.github.klimmmax.core.FunctionRegistry
-import io.github.klimmmax.core.TemplateRenderer
-import io.github.klimmmax.functions.DefaultFunctions
+import io.github.matoklimm.core.ExpressionParser
+import io.github.matoklimm.core.ExecutionContext
+import io.github.matoklimm.core.FunctionRegistry
+import io.github.matoklimm.core.TemplateRenderer
+import io.github.matoklimm.functions.DefaultFunctions
 
 class JsonTemplateEngineBuilder {
 

@@ -1,6 +1,6 @@
-package io.github.klimmmax.core
+package io.github.matoklimm.core
 
-import io.github.klimmmax.api.TemplateFunction
+import io.github.matoklimm.api.TemplateFunction
 
 internal class FunctionRegistry {
 

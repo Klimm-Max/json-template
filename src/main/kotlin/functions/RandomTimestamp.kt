@@ -1,7 +1,7 @@
-package io.github.klimmmax.functions
+package io.github.matoklimm.functions
 
-import io.github.klimmmax.api.TemplateFunction
-import io.github.klimmmax.core.ExecutionContext
+import io.github.matoklimm.api.TemplateFunction
+import io.github.matoklimm.core.ExecutionContext
 import java.time.Duration
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
