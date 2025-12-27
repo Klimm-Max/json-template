@@ -31,7 +31,7 @@ Nothing more. ✅
 
 ------------------------------------------------------------------------
 
-## Core Idea
+## Core Idea 🌀
 
 Given a template string like:
 
@@ -78,7 +78,7 @@ probably **not** what you want.
 
 ------------------------------------------------------------------------
 
-## Getting Started
+## Getting Started 🚀
 
 ### Dependency
 
@@ -86,7 +86,7 @@ probably **not** what you want.
 <dependency>
   <groupId>io.github.klimmmax</groupId>
   <artifactId>json-template</artifactId>
-  <version>1.0.0</version>
+  <version>1.0</version>
 </dependency>
 ```
 
@@ -104,9 +104,29 @@ val fileContent = object {}::class.java
 template.render(fileContent)
 ```
 
+## Registering Built-in Functions 🔧
+
+If you want to use **ALL** built-in functions simply call `.withDefaults()` on the builder like shown above. 💯
+
+If you do not need all the built-in functions provided, you can simply register only those you need with `.withDefault(array of DefaultFunction)`.
+For that, refer to [`DefaultFunction`](src/main/kotlin/io/github/klimmmax/api/DefaultFunction.kt)
+```kotlin
+class YourApplication {
+    
+    val jsonTemplateEngine = JsonTemplateEngineBuilder()
+        .withDefault(
+            DefaultFunction.RANDOM_INT,
+            DefaultFunction.RANDOM_TIMESTAMP
+        )
+        .build()
+}
+```
+
+
+
 ------------------------------------------------------------------------
 
-## Built-in Functions
+## Built-in Functions ƒ
 
 ### randomInt
     passing no args will simply call random.nextInt() which returns any Integer from Int.MIN_VALUE and Int.MAX_VALUE
@@ -180,6 +200,8 @@ template.render(fileContent)
 
 ### count
     count() is a stateful function will increase its value throughout multiple calls within one template
+    **Note** We are using LONG to store the current counter value and have no overflow protection so if you e.g. are at
+    9223372036854775806 and add a few steps you will overflow the LONG value
 
     passing no args will have a default behaviour of starting at 1 and increase each invocation by 1
     ${count()}                  -> 1, 2, 3, 4, ...
@@ -225,9 +247,7 @@ jsonTemplate.render(template)
 ```
 
 This will result in 
->{
-"id": d6ba7e90-1290-466c-800b-7064871f4b86
-}
+>{ "id": d6ba7e90-1290-466c-800b-7064871f4b86 }
 
 So you can implement all further functionality you need yourself.
 All arguments you want to pass to the `args: MutableList<String>` must be within parenthesis and comma separated for example
@@ -245,31 +265,42 @@ class CustomFunction: TemplateFunction {
 }
 ```
 
-## Registering Built-in Functions
+### Stateful functions
+If you want to build a stateful function you can use the `ExecutionContext` for that. It has a `state` which is a simple
+`ConcurrentHashMap<String, Any>`. Use your function key and store whatever you need to compute your stateful invocation.
 
-You do not need to use all the built-in functions provided, you can simply register only those you need like this.
-For that refer to [io.github.klimmmax.api.DefaultFunction]
+For example on the first invocation we generate a random UUID which is reused for any further calls in the template:
+
 ```kotlin
-class YourApplication {
-    
-    val jsonTemplateEngine = JsonTemplateEngineBuilder()
-        .withDefault(
-            DefaultFunction.RANDOM_INT,
-            DefaultFunction.RANDOM_TIMESTAMP
-        )
-        .build()
+class SessionId : TemplateFunction {
+    override val name = "sessionId"
+
+    override fun execute(args: List<String>, ctx: ExecutionContext): String {
+        val existing = ctx.state[name]
+        if (existing != null) {
+            return existing.toString()
+        }
+
+        val newId = UUID.randomUUID().toString()
+        ctx.state[name] = newId
+        return newId
+    }
 }
 ```
-
-If you want to use all built-in functions simply call `.withDefaults()` on the builder
 
 ------------------------------------------------------------------------
 
 ## Summary
 
-✔ extremely lightweight\
-✔ no reflection\
-✔ no DSL\
-✔ no JSON parsing\
-✔ easy to extend\
-✔ ideal for IoT simulators, tests and demos
+✔️ extremely lightweight\
+✔️ no reflection\
+✔️ no DSL\
+✔️ no JSON parsing\
+✔️ easy to extend\
+✔️ ideal for IoT simulators, tests and demos
+
+
+## Contribution
+
+If you find any bugs or have enhancement ideas which stay in tact with the lightweight idea of this library, 
+feel free to open an issue on GitHub. ♥️
