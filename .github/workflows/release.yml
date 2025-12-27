@@ -32,39 +32,42 @@ jobs:
       - name: Configure Maven settings.xml
         run: |
           mkdir -p ~/.m2
-          cat > ~/.m2/settings.xml <<EOF
+          cat > ~/.m2/settings.xml <<'EOF'
           <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
-            <servers>
-              <server>
-                <id>central</id>
-                <username>${MAVEN_USERNAME}</username>
-                <password>${MAVEN_PASSWORD}</password>
-              </server>
-            </servers>
-            <profiles>
-              <profile>
-                <id>release</id>
-                <properties>
-                  <gpg.passphrase>${env.MAVEN_GPG_PASSPHRASE}</gpg.passphrase>
-                </properties>
-              </profile>
-            </profiles>
-
-            <activeProfiles>
-              <activeProfile>release</activeProfile>
-            </activeProfiles>
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                    https://maven.apache.org/xsd/settings-1.0.0.xsd">
+      
+          <servers>
+            <server>
+              <id>central</id>
+              <username>${env.MAVEN_USERNAME}</username>
+              <password>${env.MAVEN_PASSWORD}</password>
+            </server>
+          </servers>
+        
+          <profiles>
+            <profile>
+              <id>release</id>
+              <properties>
+                <gpg.passphrase>${env.MAVEN_GPG_PASSPHRASE}</gpg.passphrase>
+              </properties>
+            </profile>
+          </profiles>
+        
+          <activeProfiles>
+            <activeProfile>release</activeProfile>
+          </activeProfiles>
+          
           </settings>
           EOF
 
-      - name: Set release version
-        run: mvn versions:set -DnewVersion=${{ inputs.version }}
+  - name: Set release version
+    run: mvn versions:set -DnewVersion=${{ inputs.version }}
 
-      - name: Deploy to Maven Central
-        run: mvn clean deploy -P release
-        env:
-          MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+  - name: Deploy to Maven Central
+    run: mvn clean deploy -P release
+    env:
+      MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+      MAVEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN }}
+      MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
