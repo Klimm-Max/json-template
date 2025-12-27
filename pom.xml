@@ -36,9 +36,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/klimm-max/json-template.git</connection>
-        <developerConnection>scm:git:ssh://github.com:klimm-max/json-template.git</developerConnection>
-        <url>https://github.com/klimm-max/json-template</url>
+        <connection>scm:git:git://github.com/matoklimm/json-template.git</connection>
+        <developerConnection>scm:git:ssh://github.com:matoklimm/json-template.git</developerConnection>
+        <url>https://github.com/matoklimm/json-template</url>
     </scm>
 
     <distributionManagement>
