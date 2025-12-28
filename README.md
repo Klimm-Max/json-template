@@ -86,7 +86,7 @@ probably **not** what you want.
 <dependency>
   <groupId>io.github.matoklimm</groupId>
   <artifactId>json-template</artifactId>
-  <version>1.4</version>
+  <version>1.6</version>
 </dependency>
 ```
 
@@ -225,6 +225,13 @@ class YourApplication {
     After that the provided step from each invocation will be used
     ${count(start, step)}
     ${count(13, 2)}             -> 13, 15, 17, 19, ...
+
+### pickOne
+    pickOne() will randomly select an element from all passed args.
+    This is just purely random, no logic like returning values that have not been picked yet.
+    
+    accepts any number of arguments and throws an IllegalArgumentException on passing no argument at all
+    pickOne(arg1, arg2, ...)
 
 ------------------------------------------------------------------------
 
