@@ -200,7 +200,7 @@ class YourApplication {
 
     passing one argument will create a random timestamp between now and the provided timestamp despite
     the argument being in the past or future
-    ${randomTimestamp(upperBound)}
+    ${randomTimestamp(boundary)}
     ${randomTimestamp(2025-12-25T13:37:00Z)}                        -> 2025-12-24T14:29:08.233Z
     (now() is 2025-12-24T13:45:00Z)
     
