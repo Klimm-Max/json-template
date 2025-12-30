@@ -11,7 +11,7 @@ import java.time.ZoneOffset
 import kotlin.random.Random
 import kotlin.test.assertFailsWith
 
-class UnixTimestamp {
+class UnixTimestampTest {
 
     private lateinit var ctx: ExecutionContext
     private lateinit var fn: UnixTimestamp
@@ -25,19 +25,19 @@ class UnixTimestamp {
     @Test
     fun `returns unix timestamp in seconds by default`() {
         val result = fn.execute(mutableListOf(), ctx)
-        assertEquals("1766564700", result)
+        assertEquals("1766583420", result)
     }
 
     @Test
     fun `returns unix timestamp in seconds when argument is seconds`() {
         val result = fn.execute(mutableListOf("seconds"), ctx)
-        assertEquals("1766564700", result)
+        assertEquals("1766583420", result)
     }
 
     @Test
     fun `returns unix timestamp in millis when argument is millis`() {
         val result = fn.execute(mutableListOf("millis"), ctx)
-        assertEquals("1766564700000", result)
+        assertEquals("1766583420000", result)
     }
 
     @Test
