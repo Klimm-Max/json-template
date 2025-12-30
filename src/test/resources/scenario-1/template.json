@@ -9,7 +9,7 @@
       "value": ${randomFloat(10)},
       "isValid": ${randomBool()},
       "description": "Note how randomString(42) is not picked up, when we miss ${} around it",
-      "currentState": "${pickOne('ON', 'OFF', 'STANDBY')}",
+      "currentState": "${pickOne(ON, OFF, STANDBY)}",
       "createdAtUnix": ${unixTimestamp()}
     }
   ]

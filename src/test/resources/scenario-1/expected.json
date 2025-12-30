@@ -8,7 +8,9 @@
       "createdAt": "2025-12-25T05:47:53.248Z",
       "value": 7.51,
       "isValid": false,
-      "description": "Note how random String(42) is not picked up, when we miss ${} around it"
+      "description": "Note how random String(42) is not picked up, when we miss ${} around it",
+      "currentState": "OFF",
+      "createdAtUnix": 1766583420
     }
   ]
 }
