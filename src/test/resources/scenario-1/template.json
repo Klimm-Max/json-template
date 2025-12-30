@@ -8,7 +8,9 @@
       "createdAt": "${randomTimestamp(2025-12-25T13:37:00Z)}",
       "value": ${randomFloat(10)},
       "isValid": ${randomBool()},
-      "description": "Note how randomString(42) is not picked up, when we miss ${} around it"
+      "description": "Note how randomString(42) is not picked up, when we miss ${} around it",
+      "currentState": "${pickOne('ON', 'OFF', 'STANDBY')}",
+      "createdAtUnix": ${unixTimestamp()}
     }
   ]
 }
