@@ -15,6 +15,7 @@ internal object DefaultFunctions {
             DefaultFunction.RANDOM_TIMESTAMP -> RandomTimestamp()
             DefaultFunction.RANDOM_UUID -> RandomUuid()
             DefaultFunction.TIMESTAMP -> Timestamp()
+            DefaultFunction.UNIX_TIMESTAMP -> UnixTimestamp()
             DefaultFunction.COUNT -> Count()
             DefaultFunction.PICK_ONE -> PickOne()
         }
